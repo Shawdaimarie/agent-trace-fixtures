@@ -1,0 +1,85 @@
+{
+  "schema_version": "agent-trace-fixtures.v1",
+  "synthetic": true,
+  "fixtures": [
+    {
+      "id": "parent-child",
+      "file": "fixtures/parent-child.json",
+      "sha256": "ed4376138e3d1bc679b20edfe7ea4faec58f307a182b83b930851a2d648e8b19",
+      "diagnostics": [],
+      "purpose": "Preserve parent/child relationships without network access."
+    },
+    {
+      "id": "retry",
+      "file": "fixtures/retry.json",
+      "sha256": "508a0c513862d757533a2eee96d31710190d29214332b586ed8a57c8ae002040",
+      "diagnostics": [],
+      "purpose": "Keep the failed attempt and successful retry distinct."
+    },
+    {
+      "id": "sensitive-attributes",
+      "file": "fixtures/sensitive-attributes.json",
+      "sha256": "3e4ba70542bf24ee1d90c36a741ad67f8bfe64f826a093872b8061bb8ca7a5a8",
+      "diagnostics": [],
+      "purpose": "Exercise application redaction without real personal data.",
+      "sensitive_markers": [
+        "SYNTHETIC_TOKEN_DO_NOT_USE",
+        "fixture-user@example.invalid"
+      ]
+    },
+    {
+      "id": "missing-parent",
+      "file": "fixtures/missing-parent.json",
+      "sha256": "cbb86cac27c2d3dbf7bf721b48dc5b31fe2362abb53bd9965fc8ff877dddd681",
+      "diagnostics": [
+        "missing_parent"
+      ],
+      "purpose": "Detect incomplete exports; not necessarily invalid OTLP."
+    },
+    {
+      "id": "duplicate-span",
+      "file": "fixtures/duplicate-span.json",
+      "sha256": "c01a78ada79ebb9b2eb422a1dba5f7553095c78e7cf77e7d38788c5b1afac952",
+      "diagnostics": [
+        "duplicate_span"
+      ],
+      "purpose": "Reject ambiguous duplicate span identity in this profile."
+    },
+    {
+      "id": "parent-cycle",
+      "file": "fixtures/parent-cycle.json",
+      "sha256": "1bb8f688bcff003f3c5d93140349c3f8e7282b999d6503fdc680b05218ecec0f",
+      "diagnostics": [
+        "parent_cycle"
+      ],
+      "purpose": "Detect cyclic parent relationships."
+    },
+    {
+      "id": "reversed-time",
+      "file": "fixtures/reversed-time.json",
+      "sha256": "ad13f0fb8dfcee2c678af1a8006c613859741e99022e227b6b58a1a4dd71b746",
+      "diagnostics": [
+        "reversed_time"
+      ],
+      "purpose": "Detect an end time before its start time."
+    },
+    {
+      "id": "invalid-identifier",
+      "file": "fixtures/invalid-identifier.json",
+      "sha256": "b75153405793848ba18ddde7cb99b023caf1a964d64bea7741e80901ccd35cb0",
+      "diagnostics": [
+        "invalid_identifier"
+      ],
+      "purpose": "Reject malformed span identifiers."
+    },
+    {
+      "id": "malformed-json",
+      "file": "fixtures/malformed-json.json",
+      "sha256": "5715ea11351f96c1faee52d83ceb8edf41612427a452f7acc780b6bc05072500",
+      "diagnostics": [
+        "invalid_json"
+      ],
+      "purpose": "Reject truncated or malformed JSON cleanly."
+    }
+  ]
+}
