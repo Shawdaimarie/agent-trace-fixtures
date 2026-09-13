@@ -72,28 +72,55 @@ def inspect_trace(raw: bytes) -> list[str]:
     return sorted(issues)
 
 
-def check_corpus(root: Path) -> int:
+def check_corpus(root: Path, json_out: Path | None = None) -> int:
     manifest = json.loads((root / "manifest.json").read_text())
+    fixtures = manifest["fixtures"]
+    if not isinstance(fixtures, list) or not fixtures:
+        raise ValueError("fixture corpus must not be empty")
+    inputs = {(root / item["file"]).resolve() for item in fixtures}
+    inputs.add((root / "manifest.json").resolve())
+    if json_out is not None and json_out.resolve() in inputs:
+        raise ValueError("report cannot overwrite an input")
+    results = []
     failures = 0
-    for item in manifest["fixtures"]:
+    for item in fixtures:
         path = (root / item["file"]).resolve()
         if not path.is_relative_to(root.resolve()):
             raise ValueError("fixture path escapes repository")
         with path.open("rb") as handle:
             raw = handle.read(MAX_BYTES + 1)
         actual = inspect_trace(raw)
-        matches = hashlib.sha256(raw).hexdigest() == item["sha256"] and actual == item["diagnostics"]
+        digest = hashlib.sha256(raw).hexdigest() if len(raw) <= MAX_BYTES else None
+        fingerprint_matches = digest == item["sha256"] and digest is not None
+        diagnostics_match = actual == item["diagnostics"]
+        matches = fingerprint_matches and diagnostics_match
+        results.append({
+            "id": item["id"], "passed": matches,
+            "expected_diagnostics": item["diagnostics"], "actual_diagnostics": actual,
+            "diagnostics_match": diagnostics_match,
+            "expected_sha256": item["sha256"], "actual_sha256": digest,
+            "fingerprint_matches": fingerprint_matches,
+        })
         print(f"{'PASS' if matches else 'FAIL'} {item['id']}: {','.join(actual) or 'valid-profile'}")
         failures += not matches
+    if json_out is not None:
+        report = {
+            "schema_version": "agent-trace-fixtures.report.v1",
+            "fixture_count": len(results), "failure_count": failures,
+            "passed": failures == 0, "results": results,
+        }
+        json_out.parent.mkdir(parents=True, exist_ok=True)
+        json_out.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return 1 if failures else 0
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parent)
+    parser.add_argument("--json-out", type=Path, help="write machine-readable check results")
     args = parser.parse_args()
     try:
-        return check_corpus(args.root)
+        return check_corpus(args.root, args.json_out)
     except (OSError, ValueError, KeyError, TypeError):
         print("ERROR: invalid or unavailable fixture corpus")
         return 2
