@@ -16,9 +16,16 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: ${{ matrix.python }}
-      - run: python tracecheck.py
+      - run: python tracecheck.py --json-out reports/fixture-results.json
       - run: python -m unittest discover -s tests -v
       - name: Verify deterministic generation
         run: |
           python build_fixtures.py
           git diff --exit-code -- fixtures manifest.json
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: fixture-results-python-${{ matrix.python }}
+          path: reports/fixture-results.json
+          if-no-files-found: warn

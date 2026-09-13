@@ -18,6 +18,28 @@ fixture means its expected diagnostic was detected; it does not mean the input
 is a valid trace. The checker exits 0 when every fixture and fingerprint matches,
 1 for mismatched expectations, or 2 for an unreadable corpus.
 
+## Automated results
+
+```sh
+python3 tracecheck.py --json-out reports/fixture-results.json
+```
+
+The optional `agent-trace-fixtures.report.v1` JSON report contains overall counts,
+per-fixture expected/actual diagnostic codes, and expected/actual SHA-256 values.
+It includes no trace payload. A negative fixture passes when its expected error
+is detected and its bytes match the manifest. A fingerprint mismatch still fails
+when trace structure is valid. The CLI retains its existing exit codes.
+
+Reports are deterministic for unchanged inputs. Files larger than the input
+ceiling have `actual_sha256: null`, because the checker deliberately does not
+read their entire contents. An empty corpus is rejected. A report path cannot
+replace the manifest or a fixture input, including a resolved symlink alias.
+Reports are written only after a complete corpus check; on exit code 2, discard
+any report left over from an earlier run. The manifest is a reviewed trust input,
+not a cryptographic signature or independent attestation.
+
+GitHub Actions retains the report separately for Python 3.11 and 3.12.
+
 ## Cases
 
 | File | Expected diagnostic | Test purpose |
