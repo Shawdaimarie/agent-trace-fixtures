@@ -1,0 +1,21 @@
+test_a_false_accept_fails_the_decision (test_pilot_reporting.PilotReporting.test_a_false_accept_fails_the_decision) ... ok
+test_an_unstable_repeat_fails_the_decision (test_pilot_reporting.PilotReporting.test_an_unstable_repeat_fails_the_decision) ... ok
+test_technical_pass_does_not_populate_business_outcomes (test_pilot_reporting.PilotReporting.test_technical_pass_does_not_populate_business_outcomes) ... ok
+test_clean_and_invalid_output (test_redaction.RedactionChecks.test_clean_and_invalid_output) ... ok
+test_marker_is_detected_without_echoing_it (test_redaction.RedactionChecks.test_marker_is_detected_without_echoing_it) ... ok
+test_case_insensitive_identifiers (test_tracecheck.TraceChecks.test_case_insensitive_identifiers) ... ok
+test_container_entries_must_be_objects_with_required_arrays (test_tracecheck.TraceChecks.test_container_entries_must_be_objects_with_required_arrays) ... ok
+test_corpus_expected_diagnostics_and_hashes (test_tracecheck.TraceChecks.test_corpus_expected_diagnostics_and_hashes) ... ok
+test_cross_trace_parent_does_not_resolve (test_tracecheck.TraceChecks.test_cross_trace_parent_does_not_resolve) ... ok
+test_empty_and_bad_shapes (test_tracecheck.TraceChecks.test_empty_and_bad_shapes) ... ok
+test_empty_arrays_remain_well_shaped (test_tracecheck.TraceChecks.test_empty_arrays_remain_well_shaped) ... ok
+test_input_limit (test_tracecheck.TraceChecks.test_input_limit) ... ok
+test_invalid_encoding_and_depth (test_tracecheck.TraceChecks.test_invalid_encoding_and_depth) ... ok
+test_malformed_containers_are_not_silently_skipped (test_tracecheck.TraceChecks.test_malformed_containers_are_not_silently_skipped) ... ok
+test_span_limit_across_scopes (test_tracecheck.TraceChecks.test_span_limit_across_scopes) ... ok
+test_valid_spans_do_not_hide_malformed_siblings (test_tracecheck.TraceChecks.test_valid_spans_do_not_hide_malformed_siblings) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.083s
+
+OK

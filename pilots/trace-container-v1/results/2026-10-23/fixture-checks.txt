@@ -1,0 +1,10 @@
+PASS parent-child: valid-profile
+PASS retry: valid-profile
+PASS sensitive-attributes: valid-profile
+PASS missing-parent: missing_parent
+PASS duplicate-span: duplicate_span
+PASS parent-cycle: parent_cycle
+PASS reversed-time: reversed_time
+PASS invalid-identifier: invalid_identifier
+PASS malformed-json: invalid_json
+PASS malformed-container: invalid_shape
