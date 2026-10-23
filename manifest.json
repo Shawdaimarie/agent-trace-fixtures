@@ -80,6 +80,15 @@
         "invalid_json"
       ],
       "purpose": "Reject truncated or malformed JSON cleanly."
+    },
+    {
+      "id": "malformed-container",
+      "file": "fixtures/malformed-container.json",
+      "sha256": "6141c98c4c6ad5ac29f34c15cded80263ac929137cac6b1cbd72733410c31394",
+      "diagnostics": [
+        "invalid_shape"
+      ],
+      "purpose": "Reject a non-array spans container even beside valid spans."
     }
   ]
 }

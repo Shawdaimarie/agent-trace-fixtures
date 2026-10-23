@@ -1,0 +1,20 @@
+{
+  "pilot_id": "trace-container-v1",
+  "baseline_commit": "c712de027af0812e927c3b9a5e8b4c669731b80c",
+  "baseline_path": "tracecheck.py",
+  "provenance": "Original synthetic fixtures and purpose-selected regression cases for a known defect. Not random, held out, customer data, or a production failure-rate estimate.",
+  "repeats": 100,
+  "warmup_batches": 1,
+  "case_count": 20,
+  "acceptance": {
+    "candidate_exact_matches": 20,
+    "malformed_sibling_rejections": 8,
+    "valid_control_false_alarms": 0,
+    "original_fixture_matches": 9
+  },
+  "sha256": {
+    "cases.jsonl": "4c19c7f39ff3e68d8c5a2848801fcd508cbcbbdae5b6fd6456b267f8a014169e",
+    "baseline_tracecheck.py": "6077071ad68bc237328546ebf9e37f85dc899f1663961dbc539f0eb546c964b2",
+    "../../tracecheck.py": "2d92881e392ebb33e690a0d08961e56f1d94876efc851f7787e2ce43f6a802d0"
+  }
+}

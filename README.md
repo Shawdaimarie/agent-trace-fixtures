@@ -13,7 +13,7 @@ python3 tracecheck.py
 python3 -m unittest discover -s tests -v
 ```
 
-The first command reports nine passing fixture expectations. A passing negative
+The first command reports ten passing fixture expectations. A passing negative
 fixture means its expected diagnostic was detected; it does not mean the input
 is a valid trace. The checker exits 0 when every fixture and fingerprint matches,
 1 for mismatched expectations, or 2 for an unreadable corpus.
@@ -31,6 +31,7 @@ is a valid trace. The checker exits 0 when every fixture and fingerprint matches
 | reversed-time.json | reversed_time | Detect inconsistent timing |
 | invalid-identifier.json | invalid_identifier | Reject malformed span IDs |
 | malformed-json.json | invalid_json | Reject malformed JSON |
+| malformed-container.json | invalid_shape | Reject a non-array container beside valid spans |
 
 `manifest.json` records each file's SHA-256, purpose, and expected diagnostics.
 `build_fixtures.py` regenerates the original synthetic corpus. Review changes to
@@ -65,6 +66,14 @@ It does not validate all attributes, enums, links, events, transport behavior, o
 provider semantic conventions. Its 1 MiB input and 1,000-span ceilings are local
 checker limits, not OTLP limits. Some legal OTLP encodings fall outside this profile.
 
+Within this profile, `resourceSpans`, `scopeSpans`, and `spans` must be arrays;
+the document, resource entries, and scope entries must be objects. A malformed
+container returns `invalid_shape` before span-level checks. Empty arrays are
+well shaped: they return `empty_spans` when the entire document has no spans,
+and may coexist with valid spans. Empty objects or strings cannot substitute
+for arrays. See [the debugging walkthrough](docs/CONTAINER_VALIDATION.md) for
+a reproduction and the regression-test rationale.
+
 The fixture shape follows the official [OTLP JSON encoding specification](https://opentelemetry.io/docs/specs/otlp/)
 and [file-exporter examples](https://opentelemetry.io/docs/specs/otel/protocol/file-exporter/).
 This project is independent and is not endorsed or certified by OpenTelemetry.
@@ -72,6 +81,15 @@ This project is independent and is not endorsed or certified by OpenTelemetry.
 All data is original and synthetic. `example.invalid` and explicitly labeled token
 markers are test data, not live identities or credentials. Development is AI-assisted;
 review code and expectations before relying on them in a release process.
+
+## Focused reliability pilot
+
+[Trace-container pilot protocol](pilots/trace-container-v1/PROTOCOL.md) compares
+the pinned pre-fix checker with this candidate on 20 labeled synthetic cases.
+It defines acceptance criteria, source fingerprints and an offline replay before
+the published measurement. The business hypothesis is fewer misleading trace
+review results; customer time savings and financial impact require a separate
+owner-approved workflow measurement.
 
 ## Contribute
 
