@@ -84,10 +84,12 @@ review code and expectations before relying on them in a release process.
 
 ## Focused reliability pilot
 
-[Trace-container pilot protocol](pilots/trace-container-v1/PROTOCOL.md) compares
+[Trace-container pilot results](pilots/trace-container-v1/README.md) compare
 the pinned pre-fix checker with this candidate on 20 labeled synthetic cases.
 It defines acceptance criteria, source fingerprints and an offline replay before
-the published measurement. The business hypothesis is fewer misleading trace
+the published measurement: exact diagnostic agreement improved from 12/20 to
+20/20 and eight malformed-sibling false accepts fell to zero. All six valid
+controls stayed accepted. The business hypothesis is fewer misleading trace
 review results; customer time savings and financial impact require a separate
 owner-approved workflow measurement.
 

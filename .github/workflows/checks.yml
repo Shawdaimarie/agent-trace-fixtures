@@ -18,6 +18,8 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python tracecheck.py
       - run: python -m unittest discover -s tests -v
+      - name: Reconcile published pilot evidence
+        run: python pilots/trace-container-v1/verify_results.py pilots/trace-container-v1/results/2026-10-23
       - name: Verify deterministic generation
         run: |
           python build_fixtures.py
