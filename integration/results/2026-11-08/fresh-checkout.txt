@@ -1,0 +1,2 @@
+PASS: fresh Git clone and separate virtual environment reproduced a byte-identical report.
+Same operator and host; not independent human reproduction.
