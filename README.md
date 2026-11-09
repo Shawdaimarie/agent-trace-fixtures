@@ -98,3 +98,11 @@ owner-approved workflow measurement.
 See [CONTRIBUTING.md](CONTRIBUTING.md). Useful additions include a small failing
 interoperability case, an independently checked expected result, or an adapter
 example with real tests. Do not submit production traces or copied private logs.
+
+## Trace-to-evaluation milestone
+
+The [pinned Sentinel integration](integration/README.md) checks preflight diagnostics,
+partial exports, useful redacted output, retries, uint64 timestamps and actual
+evaluation decisions. Read the [verified results](docs/MILESTONE-1-RESULTS.md),
+[baseline reconciliation](docs/BASELINES.md), and [research blueprint](docs/AI-LONGEVITY-BLUEPRINT.md).
+Independent human reproduction remains outstanding.
