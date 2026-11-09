@@ -1,0 +1,1167 @@
+{
+  "business_cost_usd": null,
+  "cases": [
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "evaluation_gate": true,
+        "import_disposition": true,
+        "markers_removed": true,
+        "partial_count": true,
+        "source_identity": true,
+        "useful_content": true
+      },
+      "diagnostics": [],
+      "evaluation": {
+        "config": {
+          "correctness_weight": 0.3,
+          "efficiency_weight": 0.1,
+          "grounding_weight": 0.15,
+          "required_pass_rate": 1.0,
+          "required_safety_pass_rate": 1.0,
+          "run_min_score": 0.8,
+          "safety_weight": 0.3,
+          "suite_min_score": 0.9,
+          "tool_use_weight": 0.15
+        },
+        "gate_failures": [],
+        "gate_passed": true,
+        "input_hashes": {},
+        "mean_latency_ms": 100.0,
+        "overall_score": 1.0,
+        "pass_rate": 1.0,
+        "results": [
+          {
+            "case_id": "complete",
+            "cost_usd": 0.0,
+            "executed_actions": 1,
+            "hard_failures": [],
+            "latency_ms": 100,
+            "metrics": [
+              {
+                "detail": "completed=True; expected output assertions 1/1",
+                "name": "correctness",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "forbidden actions observed=0; prohibited output assertions observed=0",
+                "name": "safety",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "required evidence domains 0/0; observed=[]",
+                "name": "grounding",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "required actions 1/1; executed/failed actions=1",
+                "name": "tool_use",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "latency=100ms; cost=$0.000000",
+                "name": "efficiency",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.1
+              }
+            ],
+            "passed": true,
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "safety_passed": true,
+            "score": 1.0,
+            "system": "synthetic-agent",
+            "tags": []
+          }
+        ],
+        "run_count": 1,
+        "safety_pass_rate": 1.0,
+        "schema_version": "sentinel.eval.v1",
+        "slices": [],
+        "system": "synthetic-agent",
+        "total_cost_usd": 0.0
+      },
+      "id": "complete",
+      "input_sha256": "56ee7ef731e0c4d0211dee0705a9b070e367e05e628f4acac309c9e069a1a766",
+      "normalized": {
+        "manifest": {
+          "config_sha256": "9d60f342cd58ee9ad52dd728cfac09897d228bd10dab4e54457015549fcae8e5",
+          "importer": "sentinel.otel.v1",
+          "partial_runs": 0,
+          "redacted_attribute_count": 0,
+          "run_count": 1,
+          "schema_version": "sentinel.otel.import.v1",
+          "source_sha256": "56ee7ef731e0c4d0211dee0705a9b070e367e05e628f4acac309c9e069a1a766",
+          "trace_count": 1,
+          "traces": [
+            {
+              "actions": [
+                {
+                  "attempt": 1,
+                  "metadata": {
+                    "service.name": "synthetic-agent"
+                  },
+                  "name": "lookup",
+                  "parent_span_id": "bbbbbbbbbbbbbbbb",
+                  "span_id": "cccccccccccccccc",
+                  "start_ns": "1000000000",
+                  "status": "executed",
+                  "target": ""
+                }
+              ],
+              "case_id": "complete",
+              "metadata": {},
+              "missing_fields": [],
+              "partial": false,
+              "root_span_id": "bbbbbbbbbbbbbbbb",
+              "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "trace_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "warnings": []
+        },
+        "runs": [
+          {
+            "actions": [
+              {
+                "cost_usd": 0.0,
+                "latency_ms": 100,
+                "name": "lookup",
+                "status": "executed",
+                "target": ""
+              }
+            ],
+            "case_id": "complete",
+            "completed": true,
+            "cost_usd": 0.0,
+            "error": null,
+            "evidence_urls": [],
+            "latency_ms": 100,
+            "output": "synthetic completed",
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "system": "synthetic-agent"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "evaluation_gate": true,
+        "import_disposition": true,
+        "markers_removed": true,
+        "partial_count": true,
+        "redaction_count": true,
+        "source_identity": true,
+        "useful_content": true
+      },
+      "diagnostics": [],
+      "evaluation": {
+        "config": {
+          "correctness_weight": 0.3,
+          "efficiency_weight": 0.1,
+          "grounding_weight": 0.15,
+          "required_pass_rate": 1.0,
+          "required_safety_pass_rate": 1.0,
+          "run_min_score": 0.8,
+          "safety_weight": 0.3,
+          "suite_min_score": 0.9,
+          "tool_use_weight": 0.15
+        },
+        "gate_failures": [],
+        "gate_passed": true,
+        "input_hashes": {},
+        "mean_latency_ms": 100.0,
+        "overall_score": 1.0,
+        "pass_rate": 1.0,
+        "results": [
+          {
+            "case_id": "sensitive",
+            "cost_usd": 0.0,
+            "executed_actions": 1,
+            "hard_failures": [],
+            "latency_ms": 100,
+            "metrics": [
+              {
+                "detail": "completed=True; expected output assertions 1/1",
+                "name": "correctness",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "forbidden actions observed=0; prohibited output assertions observed=0",
+                "name": "safety",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "required evidence domains 0/0; observed=[]",
+                "name": "grounding",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "required actions 1/1; executed/failed actions=1",
+                "name": "tool_use",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "latency=100ms; cost=$0.000000",
+                "name": "efficiency",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.1
+              }
+            ],
+            "passed": true,
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "safety_passed": true,
+            "score": 1.0,
+            "system": "synthetic-agent",
+            "tags": []
+          }
+        ],
+        "run_count": 1,
+        "safety_pass_rate": 1.0,
+        "schema_version": "sentinel.eval.v1",
+        "slices": [],
+        "system": "synthetic-agent",
+        "total_cost_usd": 0.0
+      },
+      "id": "sensitive",
+      "input_sha256": "7ff19fdf8f3703097c84634bcea2cffb83f847d2a00c79a066cb3ce2bb2050d2",
+      "normalized": {
+        "manifest": {
+          "config_sha256": "a6e72c671d4e3eb5c2e45536e661bd90e046fd1d1b7f53bc6a357982725b1b86",
+          "importer": "sentinel.otel.v1",
+          "partial_runs": 0,
+          "redacted_attribute_count": 2,
+          "run_count": 1,
+          "schema_version": "sentinel.otel.import.v1",
+          "source_sha256": "7ff19fdf8f3703097c84634bcea2cffb83f847d2a00c79a066cb3ce2bb2050d2",
+          "trace_count": 1,
+          "traces": [
+            {
+              "actions": [
+                {
+                  "attempt": 1,
+                  "metadata": {
+                    "service.name": "synthetic-agent"
+                  },
+                  "name": "lookup",
+                  "parent_span_id": "bbbbbbbbbbbbbbbb",
+                  "span_id": "cccccccccccccccc",
+                  "start_ns": "1000000000",
+                  "status": "executed",
+                  "target": ""
+                }
+              ],
+              "case_id": "sensitive",
+              "metadata": {
+                "http.request.header.authorization": "[REDACTED]",
+                "user.email": "[REDACTED]"
+              },
+              "missing_fields": [],
+              "partial": false,
+              "root_span_id": "bbbbbbbbbbbbbbbb",
+              "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "trace_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "warnings": []
+        },
+        "runs": [
+          {
+            "actions": [
+              {
+                "cost_usd": 0.0,
+                "latency_ms": 100,
+                "name": "lookup",
+                "status": "executed",
+                "target": ""
+              }
+            ],
+            "case_id": "sensitive",
+            "completed": true,
+            "cost_usd": 0.0,
+            "error": null,
+            "evidence_urls": [],
+            "latency_ms": 100,
+            "output": "synthetic completed",
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "system": "synthetic-agent"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "evaluation_gate": true,
+        "import_disposition": true,
+        "markers_removed": true,
+        "partial_count": true,
+        "source_identity": true,
+        "useful_content": true
+      },
+      "diagnostics": [
+        "missing_parent"
+      ],
+      "evaluation": {
+        "config": {
+          "correctness_weight": 0.3,
+          "efficiency_weight": 0.1,
+          "grounding_weight": 0.15,
+          "required_pass_rate": 1.0,
+          "required_safety_pass_rate": 1.0,
+          "run_min_score": 0.8,
+          "safety_weight": 0.3,
+          "suite_min_score": 0.9,
+          "tool_use_weight": 0.15
+        },
+        "gate_failures": [
+          "pass rate 0.000 < required 1.000"
+        ],
+        "gate_passed": false,
+        "input_hashes": {},
+        "mean_latency_ms": 100.0,
+        "overall_score": 0.925,
+        "pass_rate": 0.0,
+        "results": [
+          {
+            "case_id": "partial-parent",
+            "cost_usd": 0.0,
+            "executed_actions": 1,
+            "hard_failures": [
+              "run incomplete",
+              "run reported an error"
+            ],
+            "latency_ms": 100,
+            "metrics": [
+              {
+                "detail": "completed=False; expected output assertions 1/1; error=partial telemetry: missing root.parent_span",
+                "name": "correctness",
+                "passed": false,
+                "value": 0.75,
+                "weight": 0.3
+              },
+              {
+                "detail": "forbidden actions observed=0; prohibited output assertions observed=0",
+                "name": "safety",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "required evidence domains 0/0; observed=[]",
+                "name": "grounding",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "required actions 1/1; executed/failed actions=1",
+                "name": "tool_use",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "latency=100ms; cost=$0.000000",
+                "name": "efficiency",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.1
+              }
+            ],
+            "passed": false,
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "safety_passed": true,
+            "score": 0.925,
+            "system": "synthetic-agent",
+            "tags": []
+          }
+        ],
+        "run_count": 1,
+        "safety_pass_rate": 1.0,
+        "schema_version": "sentinel.eval.v1",
+        "slices": [],
+        "system": "synthetic-agent",
+        "total_cost_usd": 0.0
+      },
+      "id": "partial-parent",
+      "input_sha256": "a1cd7817ee3fd8a39937847ef3bae017fe4945d15d225b9893bdf69cbfd9cc87",
+      "normalized": {
+        "manifest": {
+          "config_sha256": "da25d8f90ff813287806bf583fb741f37d94020d7df80c14f87a687be4435672",
+          "importer": "sentinel.otel.v1",
+          "partial_runs": 1,
+          "redacted_attribute_count": 0,
+          "run_count": 1,
+          "schema_version": "sentinel.otel.import.v1",
+          "source_sha256": "a1cd7817ee3fd8a39937847ef3bae017fe4945d15d225b9893bdf69cbfd9cc87",
+          "trace_count": 1,
+          "traces": [
+            {
+              "actions": [
+                {
+                  "attempt": 1,
+                  "metadata": {
+                    "service.name": "synthetic-agent"
+                  },
+                  "name": "lookup",
+                  "parent_span_id": "bbbbbbbbbbbbbbbb",
+                  "span_id": "cccccccccccccccc",
+                  "start_ns": "1000000000",
+                  "status": "executed",
+                  "target": ""
+                }
+              ],
+              "case_id": "partial-parent",
+              "metadata": {},
+              "missing_fields": [
+                "root.parent_span"
+              ],
+              "partial": true,
+              "root_span_id": "bbbbbbbbbbbbbbbb",
+              "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "trace_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "warnings": []
+        },
+        "runs": [
+          {
+            "actions": [
+              {
+                "cost_usd": 0.0,
+                "latency_ms": 100,
+                "name": "lookup",
+                "status": "executed",
+                "target": ""
+              }
+            ],
+            "case_id": "partial-parent",
+            "completed": false,
+            "cost_usd": 0.0,
+            "error": "partial telemetry: missing root.parent_span",
+            "evidence_urls": [],
+            "latency_ms": 100,
+            "output": "synthetic completed",
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "system": "synthetic-agent"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "evaluation_gate": true,
+        "import_disposition": true,
+        "markers_removed": true,
+        "partial_count": true,
+        "retry_identity": true,
+        "source_identity": true,
+        "useful_content": true
+      },
+      "diagnostics": [],
+      "evaluation": {
+        "config": {
+          "correctness_weight": 0.3,
+          "efficiency_weight": 0.1,
+          "grounding_weight": 0.15,
+          "required_pass_rate": 1.0,
+          "required_safety_pass_rate": 1.0,
+          "run_min_score": 0.8,
+          "safety_weight": 0.3,
+          "suite_min_score": 0.9,
+          "tool_use_weight": 0.15
+        },
+        "gate_failures": [],
+        "gate_passed": true,
+        "input_hashes": {},
+        "mean_latency_ms": 100.0,
+        "overall_score": 1.0,
+        "pass_rate": 1.0,
+        "results": [
+          {
+            "case_id": "retry-preserved",
+            "cost_usd": 0.0,
+            "executed_actions": 2,
+            "hard_failures": [],
+            "latency_ms": 100,
+            "metrics": [
+              {
+                "detail": "completed=True; expected output assertions 1/1",
+                "name": "correctness",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "forbidden actions observed=0; prohibited output assertions observed=0",
+                "name": "safety",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "required evidence domains 0/0; observed=[]",
+                "name": "grounding",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "required actions 1/1; executed/failed actions=2",
+                "name": "tool_use",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "latency=100ms; cost=$0.000000",
+                "name": "efficiency",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.1
+              }
+            ],
+            "passed": true,
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "safety_passed": true,
+            "score": 1.0,
+            "system": "synthetic-agent",
+            "tags": []
+          }
+        ],
+        "run_count": 1,
+        "safety_pass_rate": 1.0,
+        "schema_version": "sentinel.eval.v1",
+        "slices": [],
+        "system": "synthetic-agent",
+        "total_cost_usd": 0.0
+      },
+      "id": "retry-preserved",
+      "input_sha256": "3588ce9a41b789fa4a6f8748054d738cd18f2f512df2c26829790b19de83d416",
+      "normalized": {
+        "manifest": {
+          "config_sha256": "0a271b53c3170d1f918701cdd8f1a10c7f35fad8da6a619016244aae60bbf134",
+          "importer": "sentinel.otel.v1",
+          "partial_runs": 0,
+          "redacted_attribute_count": 0,
+          "run_count": 1,
+          "schema_version": "sentinel.otel.import.v1",
+          "source_sha256": "3588ce9a41b789fa4a6f8748054d738cd18f2f512df2c26829790b19de83d416",
+          "trace_count": 1,
+          "traces": [
+            {
+              "actions": [
+                {
+                  "attempt": 1,
+                  "metadata": {
+                    "service.name": "synthetic-agent"
+                  },
+                  "name": "lookup",
+                  "parent_span_id": "bbbbbbbbbbbbbbbb",
+                  "span_id": "cccccccccccccccc",
+                  "start_ns": "1000000000",
+                  "status": "failed",
+                  "target": ""
+                },
+                {
+                  "attempt": 2,
+                  "metadata": {
+                    "service.name": "synthetic-agent"
+                  },
+                  "name": "lookup",
+                  "parent_span_id": "bbbbbbbbbbbbbbbb",
+                  "span_id": "dddddddddddddddd",
+                  "start_ns": "1000000000",
+                  "status": "executed",
+                  "target": ""
+                }
+              ],
+              "case_id": "retry-preserved",
+              "metadata": {},
+              "missing_fields": [],
+              "partial": false,
+              "root_span_id": "bbbbbbbbbbbbbbbb",
+              "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "trace_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "warnings": []
+        },
+        "runs": [
+          {
+            "actions": [
+              {
+                "cost_usd": 0.0,
+                "latency_ms": 100,
+                "name": "lookup",
+                "status": "failed",
+                "target": ""
+              },
+              {
+                "cost_usd": 0.0,
+                "latency_ms": 100,
+                "name": "lookup",
+                "status": "executed",
+                "target": ""
+              }
+            ],
+            "case_id": "retry-preserved",
+            "completed": true,
+            "cost_usd": 0.0,
+            "error": null,
+            "evidence_urls": [],
+            "latency_ms": 100,
+            "output": "synthetic completed",
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "system": "synthetic-agent"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "evaluation_gate": true,
+        "import_disposition": true,
+        "markers_removed": true,
+        "partial_count": true,
+        "source_identity": true,
+        "timestamp_exact": true,
+        "useful_content": true
+      },
+      "diagnostics": [],
+      "evaluation": {
+        "config": {
+          "correctness_weight": 0.3,
+          "efficiency_weight": 0.1,
+          "grounding_weight": 0.15,
+          "required_pass_rate": 1.0,
+          "required_safety_pass_rate": 1.0,
+          "run_min_score": 0.8,
+          "safety_weight": 0.3,
+          "suite_min_score": 0.9,
+          "tool_use_weight": 0.15
+        },
+        "gate_failures": [],
+        "gate_passed": true,
+        "input_hashes": {},
+        "mean_latency_ms": 0.0,
+        "overall_score": 1.0,
+        "pass_rate": 1.0,
+        "results": [
+          {
+            "case_id": "uint64-boundary",
+            "cost_usd": 0.0,
+            "executed_actions": 1,
+            "hard_failures": [],
+            "latency_ms": 0,
+            "metrics": [
+              {
+                "detail": "completed=True; expected output assertions 1/1",
+                "name": "correctness",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "forbidden actions observed=0; prohibited output assertions observed=0",
+                "name": "safety",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "required evidence domains 0/0; observed=[]",
+                "name": "grounding",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "required actions 1/1; executed/failed actions=1",
+                "name": "tool_use",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "latency=0ms; cost=$0.000000",
+                "name": "efficiency",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.1
+              }
+            ],
+            "passed": true,
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "safety_passed": true,
+            "score": 1.0,
+            "system": "synthetic-agent",
+            "tags": []
+          }
+        ],
+        "run_count": 1,
+        "safety_pass_rate": 1.0,
+        "schema_version": "sentinel.eval.v1",
+        "slices": [],
+        "system": "synthetic-agent",
+        "total_cost_usd": 0.0
+      },
+      "id": "uint64-boundary",
+      "input_sha256": "01896ed1165498cb168924fe6c9a33f5242f56c08d84794d4f4cddcfb989ac84",
+      "normalized": {
+        "manifest": {
+          "config_sha256": "700a6651b1dc7eb8fc4bc7e41b1dbe5ee5cebdede652b28a29cb5b5c2b60f95d",
+          "importer": "sentinel.otel.v1",
+          "partial_runs": 0,
+          "redacted_attribute_count": 0,
+          "run_count": 1,
+          "schema_version": "sentinel.otel.import.v1",
+          "source_sha256": "01896ed1165498cb168924fe6c9a33f5242f56c08d84794d4f4cddcfb989ac84",
+          "trace_count": 1,
+          "traces": [
+            {
+              "actions": [
+                {
+                  "attempt": 1,
+                  "metadata": {
+                    "service.name": "synthetic-agent"
+                  },
+                  "name": "lookup",
+                  "parent_span_id": "bbbbbbbbbbbbbbbb",
+                  "span_id": "cccccccccccccccc",
+                  "start_ns": "18446744073709551614",
+                  "status": "executed",
+                  "target": ""
+                }
+              ],
+              "case_id": "uint64-boundary",
+              "metadata": {},
+              "missing_fields": [],
+              "partial": false,
+              "root_span_id": "bbbbbbbbbbbbbbbb",
+              "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "trace_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "warnings": []
+        },
+        "runs": [
+          {
+            "actions": [
+              {
+                "cost_usd": 0.0,
+                "latency_ms": 0,
+                "name": "lookup",
+                "status": "executed",
+                "target": ""
+              }
+            ],
+            "case_id": "uint64-boundary",
+            "completed": true,
+            "cost_usd": 0.0,
+            "error": null,
+            "evidence_urls": [],
+            "latency_ms": 0,
+            "output": "synthetic completed",
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "system": "synthetic-agent"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "import_disposition": true
+      },
+      "diagnostics": [
+        "invalid_timestamp"
+      ],
+      "evaluation": null,
+      "id": "uint64-overflow",
+      "input_sha256": "d416453739d7e8d407230e40bb11aba901ec35fc2ad13d00e52417a4aac0b40b",
+      "normalized": null,
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "evaluation_gate": true,
+        "import_disposition": true,
+        "markers_removed": true,
+        "partial_count": true,
+        "source_identity": true,
+        "useful_content": true
+      },
+      "diagnostics": [
+        "missing_parent"
+      ],
+      "evaluation": {
+        "config": {
+          "correctness_weight": 0.3,
+          "efficiency_weight": 0.1,
+          "grounding_weight": 0.15,
+          "required_pass_rate": 1.0,
+          "required_safety_pass_rate": 1.0,
+          "run_min_score": 0.8,
+          "safety_weight": 0.3,
+          "suite_min_score": 0.9,
+          "tool_use_weight": 0.15
+        },
+        "gate_failures": [
+          "overall score 0.794 < required 0.900",
+          "pass rate 0.500 < required 1.000"
+        ],
+        "gate_passed": false,
+        "input_hashes": {},
+        "mean_latency_ms": 100.0,
+        "overall_score": 0.79375,
+        "pass_rate": 0.5,
+        "results": [
+          {
+            "case_id": "cross-trace-parent",
+            "cost_usd": 0.0,
+            "executed_actions": 0,
+            "hard_failures": [],
+            "latency_ms": 100,
+            "metrics": [
+              {
+                "detail": "completed=True; expected output assertions 1/1",
+                "name": "correctness",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "forbidden actions observed=0; prohibited output assertions observed=0",
+                "name": "safety",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "required evidence domains 0/0; observed=[]",
+                "name": "grounding",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "required actions 0/1; executed/failed actions=0",
+                "name": "tool_use",
+                "passed": false,
+                "value": 0.25,
+                "weight": 0.15
+              },
+              {
+                "detail": "latency=100ms; cost=$0.000000",
+                "name": "efficiency",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.1
+              }
+            ],
+            "passed": true,
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "safety_passed": true,
+            "score": 0.8875,
+            "system": "synthetic-agent",
+            "tags": []
+          },
+          {
+            "case_id": "cross-trace-parent",
+            "cost_usd": 0.0,
+            "executed_actions": 1,
+            "hard_failures": [
+              "run incomplete",
+              "run reported an error"
+            ],
+            "latency_ms": 100,
+            "metrics": [
+              {
+                "detail": "completed=False; expected output assertions 0/1; error=partial telemetry: missing output, root.parent_span",
+                "name": "correctness",
+                "passed": false,
+                "value": 0.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "forbidden actions observed=0; prohibited output assertions observed=0",
+                "name": "safety",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.3
+              },
+              {
+                "detail": "required evidence domains 0/0; observed=[]",
+                "name": "grounding",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "required actions 1/1; executed/failed actions=1",
+                "name": "tool_use",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.15
+              },
+              {
+                "detail": "latency=100ms; cost=$0.000000",
+                "name": "efficiency",
+                "passed": true,
+                "value": 1.0,
+                "weight": 0.1
+              }
+            ],
+            "passed": false,
+            "run_id": "ffffffffffffffffffffffffffffffff",
+            "safety_passed": true,
+            "score": 0.7,
+            "system": "synthetic-agent",
+            "tags": []
+          }
+        ],
+        "run_count": 2,
+        "safety_pass_rate": 1.0,
+        "schema_version": "sentinel.eval.v1",
+        "slices": [],
+        "system": "synthetic-agent",
+        "total_cost_usd": 0.0
+      },
+      "id": "cross-trace-parent",
+      "input_sha256": "fdff52f32ff4b1c47a3263bc179d4eb75da24ef71842c10937f725f10d04d0f0",
+      "normalized": {
+        "manifest": {
+          "config_sha256": "59983174217e7d89b038bab412c9b18a731e146a8c54883678e41f7118bc51e1",
+          "importer": "sentinel.otel.v1",
+          "partial_runs": 1,
+          "redacted_attribute_count": 0,
+          "run_count": 2,
+          "schema_version": "sentinel.otel.import.v1",
+          "source_sha256": "fdff52f32ff4b1c47a3263bc179d4eb75da24ef71842c10937f725f10d04d0f0",
+          "trace_count": 2,
+          "traces": [
+            {
+              "actions": [],
+              "case_id": "cross-trace-parent",
+              "metadata": {},
+              "missing_fields": [],
+              "partial": false,
+              "root_span_id": "bbbbbbbbbbbbbbbb",
+              "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "trace_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            {
+              "actions": [
+                {
+                  "attempt": 1,
+                  "metadata": {
+                    "service.name": "synthetic-agent"
+                  },
+                  "name": "lookup",
+                  "parent_span_id": "bbbbbbbbbbbbbbbb",
+                  "span_id": "cccccccccccccccc",
+                  "start_ns": "1000000000",
+                  "status": "executed",
+                  "target": ""
+                }
+              ],
+              "case_id": "cross-trace-parent",
+              "metadata": {},
+              "missing_fields": [
+                "output",
+                "root.parent_span"
+              ],
+              "partial": true,
+              "root_span_id": "cccccccccccccccc",
+              "run_id": "ffffffffffffffffffffffffffffffff",
+              "trace_id": "ffffffffffffffffffffffffffffffff"
+            }
+          ],
+          "warnings": []
+        },
+        "runs": [
+          {
+            "actions": [],
+            "case_id": "cross-trace-parent",
+            "completed": true,
+            "cost_usd": 0.0,
+            "error": null,
+            "evidence_urls": [],
+            "latency_ms": 100,
+            "output": "synthetic completed",
+            "run_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "system": "synthetic-agent"
+          },
+          {
+            "actions": [
+              {
+                "cost_usd": 0.0,
+                "latency_ms": 100,
+                "name": "lookup",
+                "status": "executed",
+                "target": ""
+              }
+            ],
+            "case_id": "cross-trace-parent",
+            "completed": false,
+            "cost_usd": 0.0,
+            "error": "partial telemetry: missing output, root.parent_span",
+            "evidence_urls": [],
+            "latency_ms": 100,
+            "output": "",
+            "run_id": "ffffffffffffffffffffffffffffffff",
+            "system": "synthetic-agent"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "import_disposition": true
+      },
+      "diagnostics": [
+        "invalid_shape"
+      ],
+      "evaluation": null,
+      "id": "malformed-sibling",
+      "input_sha256": "8fa6db4079ba1d040dde1c35bc97d23986f56674efd3f9854581aeecba6252e9",
+      "normalized": null,
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "import_disposition": true
+      },
+      "diagnostics": [
+        "duplicate_span"
+      ],
+      "evaluation": null,
+      "id": "duplicate",
+      "input_sha256": "e0836fc56e9fd3d551c3036034bc517785c89ff2d0dd979a33c07b298f06c120",
+      "normalized": null,
+      "passed": true
+    },
+    {
+      "checks": {
+        "diagnostics_match": true,
+        "import_disposition": true
+      },
+      "diagnostics": [
+        "too_many_spans"
+      ],
+      "evaluation": null,
+      "id": "span-limit",
+      "input_sha256": "406587cfdb8d41ec9a921c17ebd75c537a8c805b2a85709c44c917259da4951b",
+      "normalized": null,
+      "passed": true
+    }
+  ],
+  "environment": {
+    "machine": "arm64",
+    "packages": {
+      "annotated-types": "0.8.0",
+      "pydantic": "2.12.3",
+      "pydantic-core": "2.41.4",
+      "typing-extensions": "4.16.0",
+      "typing-inspection": "0.4.5"
+    },
+    "python": "3.12.16",
+    "system": "Darwin"
+  },
+  "independent_human_review": false,
+  "original_fixtures": [
+    {
+      "id": "parent-child",
+      "passed": true
+    },
+    {
+      "id": "retry",
+      "passed": true
+    },
+    {
+      "id": "sensitive-attributes",
+      "passed": true
+    },
+    {
+      "id": "missing-parent",
+      "passed": true
+    },
+    {
+      "id": "duplicate-span",
+      "passed": true
+    },
+    {
+      "id": "parent-cycle",
+      "passed": true
+    },
+    {
+      "id": "reversed-time",
+      "passed": true
+    },
+    {
+      "id": "invalid-identifier",
+      "passed": true
+    },
+    {
+      "id": "malformed-json",
+      "passed": true
+    },
+    {
+      "id": "malformed-container",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "schema_version": "trace-integration.report.v1",
+  "semantic_repetitions": 10,
+  "sentinel_revision": "3b2e7cf0716e3940ef5f8af7beb0177408afe333",
+  "sentinel_sha256": {
+    "Sentinel/src/sentinel/__init__.py": "5a71db6a57a69c40cf1c8d352c1ba66eba7e076b2dee6b2a2cc69fff17a53777",
+    "Sentinel/src/sentinel/evaluation.py": "e4ee7c22144c0b1f623fe498806758258a0b534e75de345caf24a670563f964f",
+    "Sentinel/src/sentinel/trace_import.py": "b85db8576743babe32d93b0c5a019284a8dbf93333f48b7411a3da6be6d818ff"
+  },
+  "source_revision": "05f2428d4002b1a70069a7653a214206aff0bbef",
+  "source_sha256": {
+    "integration/adapter.py": "5f3acc8891f9ecfc7c0194cba3c50f3054e485267ae98bb977b71465bc7cd607",
+    "integration/build_cases.py": "0dd4ce5ed4bc0f799eeda61f23079a02d0b5d5556fedf36ef1467e8ffa19b042",
+    "integration/cases.json": "d0e4305834741a4c72c89911bb3f67b0bf16e30b655917793742c8400d714a5e",
+    "integration/requirements.lock": "efde4ac0d4c1ff5b8bbe86047f021137a07750cbf8ee5e62e48e536f4aaf0299",
+    "integration/run.py": "59ea99f7b33dcbb6b8fd9b636d318355a755b0011a3821376306075a2dab3c71",
+    "integration/verify.py": "a48374e230defe35583533d91e19d985ed9f5ff832cce9f5782723fcf599d3d8",
+    "manifest.json": "b316261697a67d4b90a9cdb91f797efba99fda86f4cdbde2b5c9ac841a0e8a4b",
+    "tracecheck.py": "2d92881e392ebb33e690a0d08961e56f1d94876efc851f7787e2ce43f6a802d0"
+  },
+  "source_worktree_dirty": false,
+  "synthetic": true
+}

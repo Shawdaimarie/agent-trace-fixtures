@@ -1,0 +1,1 @@
+PASS: trace-to-evaluation contract

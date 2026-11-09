@@ -1,0 +1,108 @@
+{
+  "schema_version": "trace-integration.cases.v1",
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "complete",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}}],\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}]}]}]}\n",
+      "sha256": "56ee7ef731e0c4d0211dee0705a9b070e367e05e628f4acac309c9e069a1a766",
+      "diagnostics": [],
+      "evaluation_gate": true,
+      "partial_runs": 0,
+      "action_count": 1
+    },
+    {
+      "id": "sensitive",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}},{\"key\":\"user.email\",\"value\":{\"stringValue\":\"fixture-user@example.invalid\"}},{\"key\":\"http.request.header.authorization\",\"value\":{\"stringValue\":\"Bearer SYNTHETIC_TOKEN_DO_NOT_USE\"}}],\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}]}]}]}\n",
+      "sha256": "7ff19fdf8f3703097c84634bcea2cffb83f847d2a00c79a066cb3ce2bb2050d2",
+      "diagnostics": [],
+      "evaluation_gate": true,
+      "partial_runs": 0,
+      "action_count": 1
+    },
+    {
+      "id": "partial-parent",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}}],\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"eeeeeeeeeeeeeeee\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}]}]}]}\n",
+      "sha256": "a1cd7817ee3fd8a39937847ef3bae017fe4945d15d225b9893bdf69cbfd9cc87",
+      "diagnostics": [
+        "missing_parent"
+      ],
+      "evaluation_gate": false,
+      "partial_runs": 1,
+      "action_count": 1
+    },
+    {
+      "id": "retry-preserved",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}}],\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":2},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"dddddddddddddddd\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}]}]}]}\n",
+      "sha256": "3588ce9a41b789fa4a6f8748054d738cd18f2f512df2c26829790b19de83d416",
+      "diagnostics": [],
+      "evaluation_gate": true,
+      "partial_runs": 0,
+      "action_count": 2
+    },
+    {
+      "id": "uint64-boundary",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}}],\"endTimeUnixNano\":\"18446744073709551615\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"18446744073709551614\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"18446744073709551615\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"18446744073709551614\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}]}]}]}\n",
+      "sha256": "01896ed1165498cb168924fe6c9a33f5242f56c08d84794d4f4cddcfb989ac84",
+      "diagnostics": [],
+      "evaluation_gate": true,
+      "partial_runs": 0,
+      "action_count": 1
+    },
+    {
+      "id": "uint64-overflow",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}}],\"endTimeUnixNano\":\"18446744073709551616\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"18446744073709551614\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"18446744073709551615\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"18446744073709551614\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}]}]}]}\n",
+      "sha256": "d416453739d7e8d407230e40bb11aba901ec35fc2ad13d00e52417a4aac0b40b",
+      "diagnostics": [
+        "invalid_timestamp"
+      ],
+      "evaluation_gate": null,
+      "partial_runs": 0,
+      "action_count": 1
+    },
+    {
+      "id": "cross-trace-parent",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}}],\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"ffffffffffffffffffffffffffffffff\"}]}]}]}\n",
+      "sha256": "fdff52f32ff4b1c47a3263bc179d4eb75da24ef71842c10937f725f10d04d0f0",
+      "diagnostics": [
+        "missing_parent"
+      ],
+      "evaluation_gate": false,
+      "partial_runs": 1,
+      "action_count": 1
+    },
+    {
+      "id": "malformed-sibling",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}}],\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}]}]},{\"scopeSpans\":{}}]}\n",
+      "sha256": "8fa6db4079ba1d040dde1c35bc97d23986f56674efd3f9854581aeecba6252e9",
+      "diagnostics": [
+        "invalid_shape"
+      ],
+      "evaluation_gate": null,
+      "partial_runs": 0,
+      "action_count": 1
+    },
+    {
+      "id": "duplicate",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{\"attributes\":[{\"key\":\"output.value\",\"value\":{\"stringValue\":\"synthetic completed\"}}],\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"agent.request\",\"parentSpanId\":\"\",\"spanId\":\"bbbbbbbbbbbbbbbb\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},{\"endTimeUnixNano\":\"1100000000\",\"kind\":1,\"name\":\"tool.lookup\",\"parentSpanId\":\"bbbbbbbbbbbbbbbb\",\"spanId\":\"cccccccccccccccc\",\"startTimeUnixNano\":\"1000000000\",\"status\":{\"code\":1},\"traceId\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}]}]}]}\n",
+      "sha256": "e0836fc56e9fd3d551c3036034bc517785c89ff2d0dd979a33c07b298f06c120",
+      "diagnostics": [
+        "duplicate_span"
+      ],
+      "evaluation_gate": null,
+      "partial_runs": 0,
+      "action_count": 1
+    },
+    {
+      "id": "span-limit",
+      "input_utf8": "{\"resourceSpans\":[{\"resource\":{\"attributes\":[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"synthetic-agent\"}}]},\"scopeSpans\":[{\"scope\":{\"name\":\"agent-trace-fixtures\"},\"spans\":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]}]}]}\n",
+      "sha256": "406587cfdb8d41ec9a921c17ebd75c537a8c805b2a85709c44c917259da4951b",
+      "diagnostics": [
+        "too_many_spans"
+      ],
+      "evaluation_gate": null,
+      "partial_runs": 0,
+      "action_count": 1
+    }
+  ]
+}
