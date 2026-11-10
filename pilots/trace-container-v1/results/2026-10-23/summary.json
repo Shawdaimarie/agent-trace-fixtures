@@ -1,0 +1,53 @@
+{
+  "baseline_commit": "c712de027af0812e927c3b9a5e8b4c669731b80c",
+  "business_outcomes": {
+    "customer_acceptance": null,
+    "financial_savings": null,
+    "production_adoption": null,
+    "review_time_saved": null
+  },
+  "checks": {
+    "candidate_exact_matches": true,
+    "malformed_sibling_rejections": true,
+    "original_fixture_matches": true,
+    "repeat_diagnostics_stable": true,
+    "valid_control_false_alarms": true
+  },
+  "environment": {
+    "conditions": "shared local desktop; uncontrolled competing load",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.14"
+  },
+  "implementations": {
+    "baseline": {
+      "cases": 20,
+      "exact_matches": 12,
+      "false_accepts_malformed_siblings": 8,
+      "median_batch_ms": 0.1801455,
+      "p95_batch_ms": 0.188541,
+      "valid_control_false_alarms": 0
+    },
+    "candidate": {
+      "cases": 20,
+      "exact_matches": 20,
+      "false_accepts_malformed_siblings": 0,
+      "median_batch_ms": 0.136375,
+      "p95_batch_ms": 0.141709,
+      "valid_control_false_alarms": 0
+    }
+  },
+  "measured_at_utc": "2026-10-23T22:45:19.328564+00:00",
+  "observed": {
+    "candidate_exact_matches": 20,
+    "malformed_sibling_rejections": 8,
+    "original_fixture_matches": 9,
+    "valid_control_false_alarms": 0
+  },
+  "pilot_id": "trace-container-v1",
+  "protocol_commit": "906d40859e2e846eac2e892924adaec2459d89f3",
+  "provenance": "Original synthetic fixtures and purpose-selected regression cases for a known defect. Not random, held out, customer data, or a production failure-rate estimate.",
+  "repetitions_per_implementation": 100,
+  "status": "PASS",
+  "timing_scope": "In-process 20-case batches; excludes startup, imports and I/O. Informational, not a speed or savings claim."
+}

@@ -18,11 +18,16 @@ def inspect_trace(raw: bytes) -> list[str]:
         doc = json.loads(raw)
     except (ValueError, RecursionError):
         return ["invalid_json"]
-    try:
-        spans = [span for resource in doc["resourceSpans"]
-                 for scope in resource["scopeSpans"] for span in scope["spans"]]
-    except (KeyError, TypeError):
+    if not isinstance(doc, dict) or not isinstance(doc.get("resourceSpans"), list):
         return ["invalid_shape"]
+    spans = []
+    for resource in doc["resourceSpans"]:
+        if not isinstance(resource, dict) or not isinstance(resource.get("scopeSpans"), list):
+            return ["invalid_shape"]
+        for scope in resource["scopeSpans"]:
+            if not isinstance(scope, dict) or not isinstance(scope.get("spans"), list):
+                return ["invalid_shape"]
+            spans.extend(scope["spans"])
     if len(spans) > 1000:
         return ["too_many_spans"]
     if not spans:

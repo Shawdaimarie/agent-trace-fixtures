@@ -59,5 +59,9 @@ invalid = copy.deepcopy(base)
 invalid[1]['spanId'] = 'not-hex'
 add('invalid-identifier', invalid, ['invalid_identifier'], 'Reject malformed span identifiers.')
 save('malformed-json', b'{not-json\n', ['invalid_json'], 'Reject truncated or malformed JSON cleanly.')
+# A valid sibling must not let a malformed empty container disappear during iteration.
+malformed_container = {'resourceSpans': [{'scopeSpans': [{'spans': base}, {'spans': {}}]}]}
+save('malformed-container', (json.dumps(malformed_container, indent=2, sort_keys=True) + '\n').encode(),
+     ['invalid_shape'], 'Reject a non-array spans container even beside valid spans.')
 (ROOT / 'manifest.json').write_text(json.dumps(dict(schema_version='agent-trace-fixtures.v1',
     synthetic=True, fixtures=cases), indent=2) + '\n')

@@ -1,0 +1,10 @@
+{
+  "python": "3.12.14",
+  "unit_test_methods": 16,
+  "fixture_expectations": 10,
+  "original_fixtures_unchanged": 9,
+  "generation_deterministic": true,
+  "existing_output_preserved": true,
+  "changed_input_rejected": true,
+  "independent_reproduction": false
+}

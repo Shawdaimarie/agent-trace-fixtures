@@ -1,0 +1,39 @@
+{
+  "resourceSpans": [
+    {
+      "scopeSpans": [
+        {
+          "spans": [
+            {
+              "endTimeUnixNano": "1100000000",
+              "kind": 1,
+              "name": "agent.request",
+              "parentSpanId": "",
+              "spanId": "bbbbbbbbbbbbbbbb",
+              "startTimeUnixNano": "1000000000",
+              "status": {
+                "code": 1
+              },
+              "traceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            {
+              "endTimeUnixNano": "1100000000",
+              "kind": 1,
+              "name": "tool.lookup",
+              "parentSpanId": "bbbbbbbbbbbbbbbb",
+              "spanId": "cccccccccccccccc",
+              "startTimeUnixNano": "1000000000",
+              "status": {
+                "code": 1
+              },
+              "traceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        },
+        {
+          "spans": {}
+        }
+      ]
+    }
+  ]
+}
